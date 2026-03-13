@@ -36,3 +36,30 @@ This project is a back-end REST API built with Node.js, Express, MongoDB, and JW
 
 ## Testing Tool
 - Postman / Thunder Client
+
+## Problem Faced & Solutions
+1. Nodemon Error
+- npm run dev
+- I encountered an error where nodemon was not recognized as a command.
+Reason:
+- This happened because nodemon was not installed globally or in the project dependencies.
+Solution:
+- I installed nodemon using the following command:
+- npm install nodemon --save-dev
+- npm install -g nodemon
+
+2. MongoDB Connection Error
+uring the initial setup, the server failed to connect to the MongoDB database.
+
+Reason:
+- The error occurred due to an incorrect MongoDB connection string in the .env file or because the environment variables were not properly loaded.
+
+Solution:
+- I verified the MongoDB URI and ensured the .env file was correctly configured.
+
+3. Postman Testing error
+- Checked Steps from AI tools and then made run test.
+- 200 successfully runned all.
+
+- Images
+
