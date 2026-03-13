@@ -101,9 +101,18 @@ router.get("/:id", auth, async (req, res) => {
 // @access  Private
 router.put("/:id", auth, async (req, res) => {
   try {
+    const updateData = { ...req.body };
+    
+    if (updateData.password) {
+      const salt = await bcrypt.genSalt(10);
+      updateData.password = await bcrypt.hash(updateData.password, salt);
+    } else {
+      delete updateData.password; // Don't update password if it's empty
+    }
+
     const user = await User.findByIdAndUpdate(
       req.params.id,
-      req.body,
+      updateData,
       { new: true }
     ).select("-password");
 
